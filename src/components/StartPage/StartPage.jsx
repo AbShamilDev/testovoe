@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./StartPage.scss";
 import UniversalForm from "./UniversalForm/UniversalForm";
 import { useNavigate } from "react-router-dom";
@@ -6,11 +6,13 @@ import { useNavigate } from "react-router-dom";
 const StartPage = () => {
   const [action, setAction] = useState("");
   const navigate = useNavigate();
-  if (localStorage.getItem("token")) navigate("./main");
+  useEffect(() => {
+    if (localStorage.getItem("token")) navigate("./main");
+  }, []);
 
   return (
     <div id="startPage">
-      {action === "" ? (
+      {!action ? (
         <div id="startButtons">
           <button
             onClick={() => {

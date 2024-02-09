@@ -140,7 +140,9 @@ const UniversalForm = (props) => {
           <span>Пароли не совпадают</span>
         </div>
       )}
-      <button type="submit">Зарегистрироваться</button>
+      <button type="submit">
+        {props.login ? "Войти" : "Зарегистрироваться"}
+      </button>
     </form>
   );
 };
