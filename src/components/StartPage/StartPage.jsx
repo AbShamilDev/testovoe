@@ -15,15 +15,24 @@ const StartPage = () => {
       {!action ? (
         <div id="startButtons">
           <button
+            id="regButton"
             onClick={() => {
-              setAction("registration");
+              document.getElementById("logButton").classList.add("hide");
+
+              setTimeout(() => {
+                setAction("registration");
+              }, 200);
             }}
           >
             Зарегистрироваться
           </button>
           <button
+            id="logButton"
             onClick={() => {
-              setAction("login");
+              document.getElementById("regButton").classList.add("hide");
+              setTimeout(() => {
+                setAction("login");
+              }, 200);
             }}
           >
             Войти

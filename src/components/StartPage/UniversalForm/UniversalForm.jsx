@@ -37,7 +37,7 @@ const UniversalForm = (props) => {
       document.getElementById("passwordRepeatInput").classList.add("invalid");
     }
 
-    return !valid;
+    return valid;
   };
 
   const removeInvalid = (event) => {
@@ -48,7 +48,7 @@ const UniversalForm = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (isValid(inputs)) return;
+    if (!isValid(inputs)) return;
 
     const json = {
       email: inputs.email,
@@ -83,13 +83,15 @@ const UniversalForm = (props) => {
         removeInvalid(event);
         setInputs({ ...inputs, passwordRep: event.target.value });
         break;
-      default:
-        break;
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} id="universalForm">
+    <form
+      onSubmit={handleSubmit}
+      id="universalForm"
+      className={props.login ? "loginShowAnim" : "registShowAnim"}
+    >
       <p id="title">{props.login ? "Вход" : "Регистрация"}</p>
       {props.login ? null : (
         <div>

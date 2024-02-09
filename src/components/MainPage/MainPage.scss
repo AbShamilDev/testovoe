@@ -1,10 +1,25 @@
 #mainPage {
   width: 100%;
   position: relative;
-
+  padding-bottom: 150px;
   button {
     position: absolute;
-    top: 0;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid rgb(248, 248, 248);
+    border-radius: 8px;
+    color: white;
+    top: 32px;
+    right: 80px;
+    cursor: pointer;
+    transition: ease 100ms;
+  }
+
+  button:hover {
+    background: rgb(72, 33, 123);
   }
 
   header {
@@ -34,5 +49,15 @@
       color: rgba(248, 248, 248, 1);
       max-width: 846px;
     }
+  }
+
+  #UserTilesList {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    max-width: 1200px;
   }
 }

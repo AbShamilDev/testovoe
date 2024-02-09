@@ -1,6 +1,7 @@
 #universalForm {
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 500px;
   gap: 16px;
   border-radius: 16px;
@@ -37,15 +38,19 @@
       transition: ease 150ms;
     }
   }
+
   input.invalid {
     padding: 15px;
     border: 1px solid red;
-    margin-bottom: 4px;
+    margin-bottom: 1px;
     + span {
       opacity: 100;
     }
   }
+
   button {
+    position: absolute;
+    bottom: 16px;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     line-height: 21.79px;
@@ -53,10 +58,119 @@
     border-radius: 8px;
     color: #fff;
     border: none;
-    padding: 13px 0;
+    padding: 13px;
     transition: ease 200ms;
   }
+
   button:hover {
     background: rgb(105, 49, 178);
+  }
+}
+
+#universalForm.loginShowAnim {
+  animation: loginShowAnim 500ms forwards;
+  * {
+    animation: appear 500ms forwards;
+  }
+
+  span {
+    animation: none;
+  }
+
+  button {
+    animation: logBtnAppear 500ms forwards;
+  }
+}
+
+#universalForm.registShowAnim {
+  animation: registShowAnim 500ms forwards;
+  * {
+    animation: appear 500ms forwards;
+  }
+
+  span {
+    animation: none;
+  }
+
+  button {
+    animation: regBtnAppear 500ms forwards;
+  }
+}
+
+//анимации окна входа
+
+@keyframes loginShowAnim {
+  0% {
+    padding: 0 16px;
+    height: 51.75px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0);
+  }
+  100% {
+    padding: 16px;
+    height: 278px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@keyframes logBtnAppear {
+  0% {
+    left: 41.5%;
+    width: 92.52px;
+    padding: 15px;
+  }
+
+  100% {
+    left: 16px;
+    padding: 13px;
+    width: calc(100% - 32px);
+  }
+}
+
+//анимации окна регистрации
+
+@keyframes registShowAnim {
+  0% {
+    padding: 0 16px;
+    height: 51.75px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0);
+  }
+  100% {
+    padding: 16px;
+    height: 467px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes regBtnAppear {
+  0% {
+    bottom: -16px;
+
+    left: 180px;
+    width: 186px;
+    padding: 15px;
+  }
+
+  100% {
+    bottom: 16px;
+    left: 16px;
+    padding: 13px;
+    width: calc(100% - 32px);
+  }
+}
+@media (max-width: 500px) {
+  #universalForm {
+    width: 100%;
   }
 }
