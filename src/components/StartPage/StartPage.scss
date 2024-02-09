@@ -1,0 +1,26 @@
+#startPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  #startButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    button {
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      line-height: 21.79px;
+      background: rgba(81, 38, 137, 1);
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      transition: ease 150ms;
+    }
+    button:hover {
+      background: rgb(105, 49, 178);
+    }
+  }
+}

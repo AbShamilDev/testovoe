@@ -1,0 +1,62 @@
+#universalForm {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  gap: 16px;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+
+  #title {
+    font-size: 20px;
+  }
+
+  label {
+    font-size: 16px;
+    line-height: 21.79px;
+  }
+
+  input {
+    display: block;
+    width: calc(100% - 32px);
+    padding: 15px;
+    background: rgba(248, 248, 248, 1);
+    margin-top: 8px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    line-height: 16.41px;
+    border: 1px solid rgba(248, 248, 248, 1);
+    transition: ease 150ms;
+    + span {
+      position: absolute;
+      font-size: 10px;
+      color: red;
+      opacity: 0;
+      transition: ease 150ms;
+    }
+  }
+  input.invalid {
+    padding: 15px;
+    border: 1px solid red;
+    margin-bottom: 4px;
+    + span {
+      opacity: 100;
+    }
+  }
+  button {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 21.79px;
+    background: rgba(81, 38, 137, 1);
+    border-radius: 8px;
+    color: #fff;
+    border: none;
+    padding: 13px 0;
+    transition: ease 200ms;
+  }
+  button:hover {
+    background: rgb(105, 49, 178);
+  }
+}
