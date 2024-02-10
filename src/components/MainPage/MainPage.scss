@@ -2,7 +2,8 @@
   width: 100%;
   position: relative;
   padding-bottom: 150px;
-  button {
+
+  #logoutButton {
     position: absolute;
     font-family: Roboto;
     font-size: 16px;
@@ -16,48 +17,29 @@
     right: 80px;
     cursor: pointer;
     transition: ease 100ms;
+    img {
+      display: none;
+    }
   }
 
-  button:hover {
+  #logoutButton:hover {
     background: rgb(72, 33, 123);
   }
+}
 
-  header {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    gap: 16px;
-    background: rgba(81, 38, 137, 1);
-    height: 245px;
-    color: white;
-    text-align: center;
-
-    h1 {
-      font-size: 64px;
-      font-weight: 300;
-      line-height: 75px;
+@media (max-width: 650px) {
+  #mainPage {
+    #logoutButton {
+      border: none;
+      top: 12px;
+      padding: 0;
+      right: 16px;
+      img {
+        display: block;
+      }
+      p {
+        display: none;
+      }
     }
-
-    h2 {
-      display: flex;
-      white-space: pre-wrap;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 23.44px;
-      color: rgba(248, 248, 248, 1);
-      max-width: 846px;
-    }
-  }
-
-  #UserTilesList {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin: auto;
-    margin-top: 48px;
-    flex-wrap: wrap;
-    max-width: 1200px;
   }
 }

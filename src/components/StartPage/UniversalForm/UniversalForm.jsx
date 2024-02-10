@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./UniversalForm.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import showPassSvg from "../../../svg/eyeOpen.svg";
+import hidePassSvg from "../../../svg/eyeClose.svg";
 
 const UniversalForm = (props) => {
   const [inputs, setInputs] = useState({
@@ -10,6 +12,7 @@ const UniversalForm = (props) => {
     password: "",
     passwordRep: "",
   });
+  const [showPass, setShowPass] = useState({ 1: false, 2: false });
   const navigate = useNavigate();
 
   const isValid = (inputs) => {
@@ -121,25 +124,41 @@ const UniversalForm = (props) => {
       <div>
         <label htmlFor="password">Пароль</label>
         <input
-          type="password"
+          type={showPass[1] ? "text" : "password"}
           name="password"
           placeholder="******"
           id="passwordInput"
           onChange={handleInput}
         />
         <span>Данные некорректны</span>
+        <img
+          src={showPass[1] ? showPassSvg : hidePassSvg}
+          onClick={() => {
+            setShowPass({ ...showPass, 1: !showPass[1] });
+          }}
+          className="showPass"
+          alt=""
+        />
       </div>
       {props.login ? null : (
         <div>
           <label htmlFor="passwordRepeat">Подтвердите</label>
           <input
-            type="password"
+            type={showPass[2] ? "text" : "password"}
             name="passwordRepeat"
             placeholder="******"
             id="passwordRepeatInput"
             onChange={handleInput}
           />
           <span>Пароли не совпадают</span>
+          <img
+            src={showPass[2] ? showPassSvg : hidePassSvg}
+            onClick={() => {
+              setShowPass({ ...showPass, 2: !showPass[2] });
+            }}
+            className="showPass"
+            alt=""
+          />
         </div>
       )}
       <button type="submit">

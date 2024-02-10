@@ -1,0 +1,58 @@
+#mainPage {
+  #usersListPage {
+  }
+  #listHeader {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 16px;
+    background: rgba(81, 38, 137, 1);
+    height: 245px;
+    color: white;
+    text-align: center;
+
+    h1 {
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 75px;
+    }
+
+    h2 {
+      display: flex;
+      white-space: pre-wrap;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23.44px;
+      color: rgba(248, 248, 248, 1);
+      max-width: 850px;
+      padding: 0 20px;
+    }
+  }
+
+  #UserTilesList {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 650px) {
+  #mainPage {
+    #listHeader {
+      h1 {
+        font-size: 36px;
+        line-height: 42.19px;
+      }
+      h2 {
+        font-size: 16px;
+        line-height: 18.75px;
+      }
+    }
+  }
+}
