@@ -61,6 +61,7 @@ const UniversalForm = (props) => {
       .post("https://reqres.in/api/register", json)
       .then((res) => {
         window?.localStorage?.setItem("token", res.data.token);
+        window?.localStorage?.setItem("email", inputs.email);
         navigate("/main");
       })
       .catch((err) => {

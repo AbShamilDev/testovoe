@@ -7,8 +7,9 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
+    window?.localStorage?.removeItem("token");
+    window?.localStorage?.removeItem("userId");
+    window?.localStorage?.removeItem("email");
     navigate("/");
   };
 

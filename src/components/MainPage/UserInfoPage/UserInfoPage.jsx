@@ -53,16 +53,20 @@ const UserInfoPage = () => {
       <header id="profileHeader">
         <div id="avatarWrapper">
           <img id="avatar" src={userInfo ? userInfo.avatar : ""} alt="" />
-          <input
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={changeAvatar}
-            name="avatarFileInput"
-            id="avatarFileInput"
-          />
-          <label htmlFor="avatarFileInput" id="avatarChangeBtn">
-            <img id="avatarChangeIconSvg" src={uploadPhotoSvg} alt="" />
-          </label>
+          {userInfo && userInfo.email === localStorage.getItem("email") ? (
+            <>
+              <input
+                type="file"
+                accept="image/png, image/jpeg"
+                onChange={changeAvatar}
+                name="avatarFileInput"
+                id="avatarFileInput"
+              />
+              <label htmlFor="avatarFileInput" id="avatarChangeBtn">
+                <img id="avatarChangeIconSvg" src={uploadPhotoSvg} alt="" />
+              </label>
+            </>
+          ) : null}
         </div>
         <div id="headerInfo">
           <h1>
