@@ -5,11 +5,38 @@
     gap: 32px;
     background: rgba(81, 38, 137, 1);
     color: white;
+    #avatarWrapper {
+      position: relative;
+      #avatar {
+        width: 187px;
+        height: 187px;
+        border-radius: 50%;
+      }
 
-    img {
-      width: 187px;
-      height: 187px;
-      border-radius: 50%;
+      #avatarChangeBtn {
+        position: absolute;
+        height: 22px;
+        bottom: 0;
+        right: 10px;
+        padding: 8px 10px 10px 10px;
+        border-radius: 50%;
+        background: linear-gradient(
+          140deg,
+          rgba(81, 38, 137, 1) 30%,
+          rgb(39, 5, 80)
+        );
+        cursor: pointer;
+        border: none;
+        transition: ease 200ms;
+
+        #avatarChangeIconSvg {
+          width: 20px;
+        }
+      }
+      #avatarFileInput {
+        display: none;
+        position: absolute;
+      }
     }
 
     #headerInfo {

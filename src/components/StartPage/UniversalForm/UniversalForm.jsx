@@ -131,14 +131,15 @@ const UniversalForm = (props) => {
           onChange={handleInput}
         />
         <span>Данные некорректны</span>
-        <img
-          src={showPass[1] ? showPassSvg : hidePassSvg}
+        <button
+          type="button"
+          className="showPass"
           onClick={() => {
             setShowPass({ ...showPass, 1: !showPass[1] });
           }}
-          className="showPass"
-          alt=""
-        />
+        >
+          <img src={showPass[1] ? showPassSvg : hidePassSvg} alt="" />
+        </button>
       </div>
       {props.login ? null : (
         <div>
@@ -151,17 +152,18 @@ const UniversalForm = (props) => {
             onChange={handleInput}
           />
           <span>Пароли не совпадают</span>
-          <img
-            src={showPass[2] ? showPassSvg : hidePassSvg}
+          <button
+            type="button"
+            className="showPass"
             onClick={() => {
               setShowPass({ ...showPass, 2: !showPass[2] });
             }}
-            className="showPass"
-            alt=""
-          />
+          >
+            <img src={showPass[2] ? showPassSvg : hidePassSvg} alt="" />
+          </button>
         </div>
       )}
-      <button type="submit">
+      <button type="submit" id="loginButton">
         {props.login ? "Войти" : "Зарегистрироваться"}
       </button>
     </form>

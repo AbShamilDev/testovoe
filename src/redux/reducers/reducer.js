@@ -8,6 +8,16 @@ export const reducer = (state = defaultState, action) => {
       return { ...state, ableToPaginate: true };
     case "DISABLE_PAGINATE":
       return { ...state, ableToPaginate: false };
+    case "SET_LIKESLIST":
+      return { ...state, likesList: action.value };
+    case "ADD_IN_LIKESLIST":
+      return { ...state, likesList: [...state.likesList, action.value] };
+    case "REMOVE_FROM_LIKESLIST":
+      return {
+        ...state,
+        likesList: state.likesList.filter((id) => id !== action.value),
+      };
+
     default:
       return state;
   }

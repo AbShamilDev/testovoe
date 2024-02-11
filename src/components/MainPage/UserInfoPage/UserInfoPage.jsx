@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import phoneSvg from "../../../svg/phone.svg";
 import emailSvg from "../../../svg/email.svg";
 import backSvg from "../../../svg/backArrow.svg";
+import uploadPhotoSvg from "../../../svg/uploadPhoto.svg";
+
 const UserInfoPage = () => {
   const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
@@ -26,6 +28,19 @@ const UserInfoPage = () => {
   const goBack = () => {
     navigate(-1);
   };
+  console.log(userInfo);
+  const changeAvatar = async (event) => {
+    const formData = new FormData();
+    formData.append("file", event.target.files[0]);
+    await axios
+      .patch("...", formData)
+      .then((res) => {
+        setUserInfo({ ...userInfo, avatar: res.data.avatar });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     if (!localStorage.getItem("token")) navigate("/../");
@@ -35,7 +50,19 @@ const UserInfoPage = () => {
   return (
     <div id="userInfoPage">
       <header id="profileHeader">
-        <img src={userInfo ? userInfo.avatar : ""} alt="" />
+        <div id="avatarWrapper">
+          <img id="avatar" src={userInfo ? userInfo.avatar : ""} alt="" />
+          <input
+            type="file"
+            accept="image/png, image/jpeg"
+            onChange={changeAvatar}
+            name="avatarFileInput"
+            id="avatarFileInput"
+          />
+          <label htmlFor="avatarFileInput" id="avatarChangeBtn">
+            <img id="avatarChangeIconSvg" src={uploadPhotoSvg} alt="" />
+          </label>
+        </div>
         <div id="headerInfo">
           <h1>
             {userInfo ? `${userInfo.first_name} ${userInfo.last_name}` : ""}

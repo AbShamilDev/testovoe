@@ -26,7 +26,7 @@
       background: rgb(105, 49, 178);
     }
     button.hide {
-      animation: hideButton 200ms ease forwards;
+      animation: hideButton 200ms linear forwards;
     }
   }
 }
