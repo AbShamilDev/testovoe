@@ -10,7 +10,7 @@ const UsersPaginator = () => {
   const ableToPaginate = useSelector((state) => state.ableToPaginate);
   const dispatch = useDispatch();
   const usersList = useSelector((state) => state.usersList);
-  console.log(store.getState());
+
   const fetchData = async () => {
     await axios
       .get("https://reqres.in/api/users?page=2")

@@ -47,8 +47,6 @@ const UsersListPage = () => {
     !usersList.length && fetchUsersList();
   }, []);
 
-  console.log(likesList.includes(1));
-
   return (
     <div>
       <header id="listHeader">

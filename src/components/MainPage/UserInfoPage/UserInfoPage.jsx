@@ -14,13 +14,14 @@ const UserInfoPage = () => {
 
   const fetchData = async () => {
     let temp = {};
+
     await axios.get(`https://reqres.in/api/users/${params.id}`).then((res) => {
       temp = { ...res.data.data };
     });
+
     await axios
       .get(`https://e855c61df68ddceb.mokky.dev/users-info?id=${params.id}`)
       .then((res) => {
-        console.log(res.data);
         setUserInfo({ ...temp, ...res.data[0] });
       });
   };
@@ -28,7 +29,7 @@ const UserInfoPage = () => {
   const goBack = () => {
     navigate(-1);
   };
-  console.log(userInfo);
+
   const changeAvatar = async (event) => {
     const formData = new FormData();
     formData.append("file", event.target.files[0]);

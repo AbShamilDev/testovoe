@@ -63,8 +63,8 @@ const UniversalForm = (props) => {
         window?.localStorage?.setItem("token", res.data.token);
         navigate("/main");
       })
-      .catch((res) => {
-        console.log(res.data);
+      .catch((err) => {
+        console.log(err);
       });
   };
 
