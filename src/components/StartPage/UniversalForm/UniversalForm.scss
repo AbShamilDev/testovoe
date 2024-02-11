@@ -110,7 +110,6 @@
   }
 
   #loginButton {
-    left: 51.5%;
     animation: regBtnAppear 500ms forwards;
   }
 }
@@ -173,13 +172,10 @@
 @keyframes regBtnAppear {
   0% {
     bottom: -16px;
-
     width: 186px;
     padding: 15px;
   }
   100% {
-    left: 50%;
-
     bottom: 16px;
     padding: 13px;
     width: calc(100% - 32px);
@@ -189,10 +185,5 @@
 @media (max-width: 500px) {
   #universalForm {
     width: calc(100% - 32px);
-  }
-  #universalForm.registShowAnim {
-    #loginButton {
-      left: 50%;
-    }
   }
 }
