@@ -12,6 +12,7 @@ const UniversalForm = (props) => {
     password: "",
     passwordRep: "",
   });
+  const [logFailed, setLogFailed] = useState(false);
   const [showPass, setShowPass] = useState({ 1: false, 2: false });
   const navigate = useNavigate();
 
@@ -42,10 +43,10 @@ const UniversalForm = (props) => {
 
     return valid;
   };
-
   const removeInvalid = (event) => {
     if (event.target.classList.length !== 0)
       event.target.classList.remove("invalid");
+    logFailed && setLogFailed(false);
   };
 
   const handleSubmit = async (event) => {
@@ -66,6 +67,7 @@ const UniversalForm = (props) => {
       })
       .catch((err) => {
         console.log(err);
+        setLogFailed(true);
       });
   };
 
@@ -94,9 +96,11 @@ const UniversalForm = (props) => {
     <form
       onSubmit={handleSubmit}
       id="universalForm"
-      className={props.login ? "loginShowAnim" : "registShowAnim"}
+      className={`${props.login ? "loginShowAnim" : "registShowAnim"} ${
+        logFailed ? "failed" : null
+      }`}
     >
-      <p id="title">{props.login ? "Вход" : "Регистрация"}</p>
+      <span id="title">{props.login ? "Вход" : "Регистрация"}</span>
       {props.login ? null : (
         <div>
           <label htmlFor="name">Имя</label>
@@ -167,6 +171,9 @@ const UniversalForm = (props) => {
       <button type="submit" id="loginButton">
         {props.login ? "Войти" : "Зарегистрироваться"}
       </button>
+      <span id="loginErrorSpan" className={`${logFailed ? "failed" : null}`}>
+        Данные некорректны, вход не произведен
+      </span>
     </form>
   );
 };
